@@ -89,7 +89,7 @@ class BookStoreMongoDBIntegrationTest
 	@Test
 	void deleteBookById()
 	{
-		bookService.deleteById("0");
+		bookService.deleteById("");
 	}
 
 	@Test

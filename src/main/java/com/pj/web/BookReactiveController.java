@@ -45,7 +45,7 @@ public class BookReactiveController {
      * @since 2.1.0
      */
     @GetMapping("/find/id/{id}")
-    public Mono<Book> getBookById(@PathVariable Long id) {
+    public Mono<Book> getBookById(@PathVariable String id) {
         return bookReactiveRepository.findById(id);
     }
 
@@ -88,7 +88,13 @@ public class BookReactiveController {
      * @since 2.1.0
      */
     @DeleteMapping("/delete/{id}")
-    public Mono<Void> deleteBook(@PathVariable Long id) {
+    public Mono<Void> deleteBook(@PathVariable String id) {
+        System.out.println("Method invocaion 0001111");
         return bookReactiveRepository.deleteById(id);
+    }
+    @DeleteMapping("/delete")
+    public void deleteBook(@RequestBody Book book) {
+        System.out.println("Method invocaion 0001111");
+        bookReactiveRepository.delete(book);
     }
 }
